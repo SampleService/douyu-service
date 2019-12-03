@@ -1,5 +1,6 @@
 package com.sampleservice.douyuservice.controller;
 
+import com.sampleservice.douyuservice.utils.MBaseUtils;
 import com.septemberhx.common.base.MResponse;
 import com.septemberhx.mclient.annotation.MApiFunction;
 import com.septemberhx.mclient.annotation.MRestApiType;
@@ -20,6 +21,10 @@ public class MainController extends MObject {
     public MResponse streamFunction(@RequestBody MResponse requestData) {
         MResponse result = new MResponse();
         result.set("msg", "/stream");
+
+        if (requestData.get("interval") != null) {
+            MBaseUtils.generateStringInKBSize(30, result, (int) requestData.get("interval"));
+        }
         return result;
     }
 }
