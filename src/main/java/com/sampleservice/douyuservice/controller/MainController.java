@@ -23,7 +23,7 @@ public class MainController extends MObject {
         result.set("msg", "/stream");
 
         if (requestData.get("interval") != null) {
-            MBaseUtils.generateStringInKBSize(30, result, (long) requestData.get("interval"));
+            MBaseUtils.generateStringInKBSize(30, result, (int) requestData.get("interval"));
         }
         return result;
     }
